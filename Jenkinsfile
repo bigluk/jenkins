@@ -32,6 +32,14 @@ pipeline{
             }
         }
         
+        stage("Deploy To Kubernetes"){
+            steps{
+                script{
+                    kubernetesDeploy (configs: 'deployment.yml', kubeconfigId: 'kubernetesPsw')
+                }
+            }
+        }
+        
     }
     
 }
